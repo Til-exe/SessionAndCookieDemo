@@ -1,5 +1,7 @@
 <?php
 
+namespace Quantify\Action;
+
 class HomeAction
 {
     public function RenderHomePage(): void{

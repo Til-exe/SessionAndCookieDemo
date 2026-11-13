@@ -1,6 +1,6 @@
 # Changelog
 
-### Wilkommen im Quantify Changelog
+### Welcome to the Quantify Changelog
 
 All notable changes to this project will be documented in this file.
 
