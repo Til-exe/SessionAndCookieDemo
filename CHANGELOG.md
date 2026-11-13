@@ -8,3 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.0.1] - 12.11.2026
+
+### Added
+
+- Just file that starts a local Web-Server
+- Reachable Home Page
+- UniTests & Infection installed with Composer 
