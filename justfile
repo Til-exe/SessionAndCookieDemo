@@ -10,10 +10,16 @@ run_local_web:
 test *ARGS="":
     ./vendor/bin/phpunit -c phpunit.xml --display-deprecations --display-errors --display-notices --display-phpunit-deprecations --display-warnings {{ARGS}}
 
-# Mutation Test
+
+test-coverage:
+    vendor/bin/phpunit
+    @echo "HTML coverage report: build/coverage/html/index.html"
+
+test-report: test-coverage
+    xdg-open build/coverage/html/index.html
+
 infect:
     vendor/bin/infection --threads=max --show-mutations
 
-# Run mutation testing and open the HTML report in the browser
-infect-report: infect
+infect-report:
     xdg-open build/infection/infection.html
