@@ -1,4 +1,6 @@
 <?php
-require __DIR__ . "/../src/Action/HomeAction.php";
+require __DIR__ . "/../vendor/autoload.php";
+
+use Quantify\Action\HomeAction;
 
 new HomeAction()->RenderHomePage();

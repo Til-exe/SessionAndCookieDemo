@@ -3,6 +3,11 @@
         "phpunit/phpunit": "^13.4",
         "infection/infection": "^0.35.10"
     },
+    "autoload": {
+        "psr-4": {
+            "Quantify\\": "src/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "infection/extension-installer": true
