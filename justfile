@@ -9,3 +9,15 @@ run_local_web:
 #UnitTests ausführen
 test *ARGS="":
     ./vendor/bin/phpunit -c phpunit.xml --display-deprecations --display-errors --display-notices --display-phpunit-deprecations --display-warnings {{ARGS}}
+
+
+test-coverage:
+    vendor/bin/phpunit
+    @echo "HTML coverage report: build/coverage/html/index.html"
+
+test-report: test-coverage
+    xdg-open build/coverage/html/index.html
+
+
+infect-report:
+    xdg-open build/infection/infection.html
