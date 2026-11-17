@@ -58,12 +58,56 @@ cd quantify
 
 ### Abhängigkeiten installieren
 
-Falls Composer verwendet wird, können die benötigten PHP-Abhängigkeiten mit folgendem Befehl installiert werden:
+
+Zuerst wird PHP installiert
+
+```bash
+sudo apt install php8.5-cli
+```
+
+Anschließend werden die Nötigen PHP-Abhängigkeiten mit Composer installiert 
 
 ```bash
 composer install
 ```
+Für den Webserver nutzen wird **Nginx**. Das wird mit folgendem Befehl installiert:
 
+```bash
+sudo apt install nginx
+```
+
+Damit der Webserver PHP Scripte ausführen kann, nutzen wir PHP FastCGI Process Manager
+```bash
+sudo apt install php-fpm
+```
+
+Nun sind alle abhängigkeiten installiert
+
+### Konfiguration
+
+```bash
+# In den Ordner wechseln
+cd /etc/nginx/sites-enabled
+
+# Datei erstellen
+touch Quantify
+
+# Datei beschreiben
+nano Quantify
+
+# Symlink erstellen
+ln -s /etc/nginx/sites-availabe/Quantify /etc/nginx/sites-enabled/
+
+# Zertifikate erstellen
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048   -keyout /etc/nginx/ssl/quantify/quantify.key   -out /etc/nginx/ssl/quantify/quantify.crt   -subj "/CN=quantify"
+```
+key und crt in /etc/nginx/sites-available/quantify verlinkt:
+```bash
+server_name                 qa.quantify.synatix.com;
+
+    ssl_certificate             /etc/nginx/ssl/quantify/quantify.crt;
+    ssl_certificate_key         /etc/nginx/ssl/quantify/quantify.key;
+```
 ---
 
 ## Qualitätssicherung & Tests

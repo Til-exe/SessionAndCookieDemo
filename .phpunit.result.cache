@@ -1,1 +1,1 @@
-{"version":2,"defects":[],"times":{"QuantifyTest\\Action\\HomeActionTest::testBasicTest":0}}
+{"version":2,"defects":[],"times":{"QuantifyTest\\Action\\HomeActionTest::testRenderHomePage":0.004}}

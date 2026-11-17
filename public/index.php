@@ -2,6 +2,6 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
-use Quantify\Action\HomeAction;
+use Quantify\Router\PageRouter;
 
-new HomeAction()->RenderHomePage();
+new PageRouter()->Navigate();
