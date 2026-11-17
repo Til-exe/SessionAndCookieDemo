@@ -1,6 +1,6 @@
 <?php
 
-namespace Quantify\Responder;
+namespace Synatix\Quantify\Responder;
 
 class ResponseObject
 {

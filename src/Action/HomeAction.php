@@ -1,6 +1,6 @@
 <?php
 
-namespace Quantify\Action;
+namespace Synatix\Quantify\Action;
 
 class HomeAction
 {

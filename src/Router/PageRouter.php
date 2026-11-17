@@ -1,8 +1,8 @@
 <?php
 
-namespace Quantify\Router;
+namespace Synatix\Quantify\Router;
 
-use Quantify\Responder\ResponseObject;
+use Synatix\Quantify\Responder\ResponseObject;
 
 class PageRouter
 {

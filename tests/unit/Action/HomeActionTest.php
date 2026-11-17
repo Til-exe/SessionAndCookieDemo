@@ -1,9 +1,9 @@
 <?php
 
-namespace QuantifyTest\Action;
+namespace Synatix\Quantify\Test\Action;
 
 use PHPUnit\Framework\TestCase;
-use Quantify\Action\HomeAction;
+use Synatix\Quantify\Action\HomeAction;
 
 final class HomeActionTest extends TestCase
 {

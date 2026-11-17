@@ -2,6 +2,6 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
-use Quantify\Router\PageRouter;
+use Synatix\Quantify\Router\PageRouter;
 
 new PageRouter()->Navigate();
