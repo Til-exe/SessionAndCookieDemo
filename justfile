@@ -3,7 +3,7 @@ default:
     @just --list
 
 #Startet einen Localen Webserver auf Port 8000
-run_local_web:
+run-local-web:
     php -S localhost:8000 -t public
 
 #Unit-Tests ausführen

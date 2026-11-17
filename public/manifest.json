@@ -1,0 +1,8 @@
+{
+    "name":	"Quantify",
+    "description":	"Ein Lagerüberwachungssystem für die Synatix GmbH",
+    "lang":	"de-DE",
+    "start_url":	"/",
+    "scope":	"/",
+    "display":	"standalone"
+}

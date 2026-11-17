@@ -9,10 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 12.11.2026
+## [0.1.0] - 2026-11-12
 
 ### Added
 
 - Just file that starts a local Web-Server
 - Reachable Home Page
-- UniTests & Infection installed with Composer 
+- UnitTests & Infection installed with Composer 
