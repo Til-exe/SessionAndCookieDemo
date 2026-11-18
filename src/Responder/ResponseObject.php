@@ -1,6 +1,6 @@
 <?php
 
-namespace Synatix\Quantify\Responder;
+namespace SessionsAndCookies\Responder;
 
 class ResponseObject
 {

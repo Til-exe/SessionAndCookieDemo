@@ -5,12 +5,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Synatix\\Quantify\\": "src/"
+            "SessionsAndCookies\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Synatix\\Quantify\\Test\\": "tests/unit"
+            "SessionsAndCookies\\Test\\": "tests/unit"
         }
     },
     "config": {

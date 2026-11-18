@@ -1,17 +1,194 @@
-html, body{
-    padding: 0;
-    margin: 0;
+
+* {
+    box-sizing: border-box;
 }
 
-body{
-    background-color: #232323;
-    display: grid;
-    place-items: center;    
+body {
+    margin: 2vh 0 10vw 0;
+    padding: 0;
+    min-height: 100%;
 }
-h1{
-    background-color: white;
-    padding: 6px;    
+
+form{
+    display: grid;
+}
+label{
+    font-size: clamp(16px, 4vw, 25px);
+}
+
+select{
+    margin: 0.5rem 0.1rem;
+    padding: 5px 10px;
+
+    font-size: clamp(14px, 4vw, 21px);
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 10px;
-    box-shadow: 0rem 1rem 1rem black;
-    
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+option{
+    background: linear-gradient(135deg, #00c896, #00a878);
+    color: black;
+}
+input{
+    margin: 0.5rem 0.1rem;
+    padding: 5px 10px;
+
+    font-size: clamp(14px, 4vw, 21px);
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+
+
+
+nav{
+    margin: 0;
+    padding: 20px 30px;
+
+    font-size: clamp(16px, 4vw, 25px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+nav > a{
+    margin: 0;
+    padding: 7px 12px;
+
+    font-size: clamp(16px, 4vw, 25px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 7px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+
+    background:
+        radial-gradient(circle at top left, #263c54, transparent 45%),
+        radial-gradient(circle at bottom right, #173d36, transparent 45%),
+        #121820;
+}
+
+/* Main heading */
+h1 {
+    margin: 0;
+    padding: 25px 35px;
+
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+.divider{
+    margin-top:2rem;
+    margin-bottom:2rem;
+
+    width: 70%;
+    min-width: 70vw;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.info{
+
+    margin: 0;
+    padding: 25px 35px;
+
+    font-size: clamp(12px, 3vw, 19px);
+    font-weight: 200;
+    letter-spacing: 1px;
+    text-align: justify;
+    max-width: clamp(50em, 13vw, 19em);
+
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+
+    border: 1px solid lightgray;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+}
+
+/* Start button */
+button {
+    padding: 16px 38px;
+
+    background: linear-gradient(135deg, #00c896, #00a878);
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0, 200, 150, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #00e6ad, #00bd8a);
+    box-shadow: 0 12px 30px rgba(0, 200, 150, 0.35);
+}
+
+button:active {
+    transform: translateY(-1px);
 }
