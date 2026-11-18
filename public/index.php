@@ -2,6 +2,6 @@
 
 require __DIR__ . "/../vendor/autoload.php";
 
-use SessionsAndCookies\Router\PageRouter;
+use SessionsAndCookies\Action\Application;
 
-new PageRouter()->Navigate();
+new Application()->start();

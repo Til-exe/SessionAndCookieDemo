@@ -13,22 +13,32 @@
 <body>
 
     <h1>
-        Hi, i am Page5
+        Sources and Links
     </h1>
-    <nav>
-        <a href="home">Home</a>
-        <a href="Sessions">Sessions</a>
-        <a href="Cookies">Cookies</a>
-        <a href="Page3">Page 3</a>
-        <a href="Page4">Page 4</a>
-        <a href="Page5">Page 5</a>
+    <nav style="display: block;">
+        <a href="<?php echo SessionsAndCookies\config\Routes::HOME; ?>">Restart a Session</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SESSIONS; ?>">Sessions</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::COOKIES; ?>">Cookies</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA; ?>">Age</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA2; ?>">Page 4</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::ABOUT; ?>">About</a>
     </nav>
-    <h2>Hallo, User!</h2>
+    <h2>Hallo, <?php echo isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'User'; ?>!</h2>
     <infobereich class="info">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi non aspernatur, assumenda hic cumque itaque earum, voluptatem omnis mollitia harum modi. Tempora hic esse excepturi accusantium commodi distinctio velit illo.
-        Ex, id? Repellat minus, possimus odit magnam voluptatibus, praesentium nihil deserunt natus et deleniti officia hic at provident cum optio nobis ut dolores vel vero repellendus? Ullam officia ea eaque!
+        <h2>w3schools:</h2>
+        <ul>
+            <li> Sessions: <a href="https://www.w3schools.com/php/php_sessions.asp" target="_blank">https://www.w3schools.com/php/php_sessions.asp</a></li>
+            <li> Cookies: <a href="https://www.w3schools.com/php/php_cookies.asp" target="_blank">https://www.w3schools.com/php/php_cookies.asp</a></li>
+        </ul>
+        <h2>other:</h2>
+        <ul>
+            <li>Google Search</li>
+            <li>ChatGpt</li>
+        </ul>
+
+
     </infobereich>
-    
+
 </body>
 
 </html>

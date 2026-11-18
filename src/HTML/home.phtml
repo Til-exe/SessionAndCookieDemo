@@ -1,3 +1,23 @@
+<?php
+
+$submitted = false;
+$name = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    $name = trim($_POST['name'] ?? '');
+    $age = trim($_POST['age'] ?? '');
+    $color = trim($_POST['favcolor'] ?? '');
+
+    if (!empty($name) && !empty($age) && !empty($color)) {
+        $submitted = true;
+
+        session_start();
+        $_SESSION['user_name'] = $name;
+        $_SESSION['user_age'] = $age;
+        $_SESSION['user_color'] = $color;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,39 +35,71 @@
     <h1>
         Guide to Sessions and Cookies
     </h1>
-    <nav>
-        <a href="home">Home</a>
-        <a href="Sessions">Sessions</a>
-        <a href="Cookies">Cookies</a>
-        <a href="Page3">Page 3</a>
-        <a href="Page4">Page 4</a>
-        <a href="Page5">Page 5</a>
+    <nav style="display: <?php echo $submitted ? "block" : 'none'; ?>; " id="navbar">
+        <a href="<?php echo SessionsAndCookies\config\Routes::HOME; ?>">Restart a Session</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SESSIONS; ?>">Sessions</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::COOKIES; ?>">Cookies</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA; ?>">Age</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA2; ?>">Page 4</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::ABOUT; ?>">About</a>
     </nav>
-    <h2>Hallo, User!</h2>
-    
+
+
     <infobereich class="info">
-    <p>I want to give you the best Experience possible on my Website</p>
-    <p>To improve your experience, please introduce yourself to me :D</p>
-    <form>
-        <label>Name:</label>
-        <input type="text" required />
 
-        <label>Age:</label>
-        <input type="number" required />
+        <h2>Hallo, <?php echo $submitted ? htmlspecialchars($name) : 'User'; ?>!</h2>
+        <p>Enter your Information and submit to start a session</p>
+        <p>To improve your experience, please introduce yourself to me :D</p>
+        <form id="intro-form" action="" method="POST">
+            <label>Name:</label>
+            <input type="text" name="name" id="name-input" required />
 
-        <label>Favorite Color:</label>
-        <select name="pets" id="pet-select" required>
-            <option value="">--Please choose an option--</option>
-            <option value="dog">Black</option>
-            <option value="cat">Red</option>
-            <option value="hamster">Blue</option>
-            <option value="parrot">Green</option>
-            <option value="spider">Purple</option>
-            <option value="goldfish">Yellow</option>
-        </select>
-        <button type="submit">Save</button>        
-    </form>
-</infobereich>
+            <label>Age:</label>
+            <input type="number" name="age" id="age-input" required />
+
+            <label>Favorite Color:</label>
+            <select name="favcolor" id="color-select" required>
+                <option value="">--Please choose an option--</option>
+                <option value="black">Black</option>
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>
+                <option value="purple">Purple</option>
+                <option value="yellow">Yellow</option>
+            </select><br>
+
+            <!-- Start-Text ist "Please enter Information" -->
+            <button type="submit" id="submit-btn" disabled>Please enter Information</button>
+        </form>
+    </infobereich>
+
+    <script>
+        // JavaScript für den Live-Textwechsel des Buttons
+        const nameInput = document.getElementById('name-input');
+        const ageInput = document.getElementById('age-input');
+        const colorSelect = document.getElementById('color-select');
+        const submitBtn = document.getElementById('submit-btn');
+        const navbar = document.getElementById('navbar');
+
+        function updateButtonText() {
+            if (nameInput.value.trim() !== '' && ageInput.value.trim() !== '' && colorSelect.value !== '') {
+                submitBtn.textContent = 'Start a new Session';
+                submitBtn.disabled = false;
+
+
+            } else {
+                submitBtn.textContent = 'Please enter Information';
+                submitBtn.disabled = true;
+                navbar.display = block;
+
+            }
+        }
+
+        // Event-Listener verknüpfen
+        nameInput.addEventListener('input', updateButtonText);
+        ageInput.addEventListener('input', updateButtonText);
+        colorSelect.addEventListener('change', updateButtonText);
+    </script>
 </body>
 
 </html>

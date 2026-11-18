@@ -13,22 +13,27 @@
 <body>
 
     <h1>
-        Hi, i am Page3
+        Age Verification
     </h1>
-    <nav>
-        <a href="home">Home</a>
-        <a href="Sessions">Sessions</a>
-        <a href="Cookies">Cookies</a>
-        <a href="Page3">Page 3</a>
-        <a href="Page4">Page 4</a>
-        <a href="Page5">Page 5</a>
+    <nav style="display: block;">
+        <a href="<?php echo SessionsAndCookies\config\Routes::HOME; ?>">Restart a Session</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SESSIONS; ?>">Sessions</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::COOKIES; ?>">Cookies</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA; ?>">Age</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA2; ?>">Page 4</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::ABOUT; ?>">About</a>
     </nav>
-    <h2>Hallo, User!</h2>
     <infobereich class="info">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi non aspernatur, assumenda hic cumque itaque earum, voluptatem omnis mollitia harum modi. Tempora hic esse excepturi accusantium commodi distinctio velit illo.
-        Ex, id? Repellat minus, possimus odit magnam voluptatibus, praesentium nihil deserunt natus et deleniti officia hic at provident cum optio nobis ut dolores vel vero repellendus? Ullam officia ea eaque!
+        Your Age will be stored in a Cookie :)
+    </infobereich>
+    <infobereich class="info">
+        Session says: Your Age is: <?php echo isset($_SESSION['user_age']) ? htmlspecialchars($_SESSION['user_age']) : 'User'; ?>
+        <p></p>Cookie says: Your Age is: <?= htmlspecialchars($_COOKIE['age'] ?? 'No Cookie Set') ?> <br>
+        (If empty, set a cookie <a href="/Cookies">here</a> with the name <code>age</code>)
     </infobereich>
     
+
+
 </body>
 
 </html>

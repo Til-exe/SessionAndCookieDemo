@@ -1,3 +1,24 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name   = trim($_POST['cookie_name'] ?? '');
+    $value  = $_POST['cookie_value'] ?? '';
+    $expire = (int)($_POST['cookie_expire'] ?? 360);
+
+    if ($name !== '' && preg_match('/^[A-Za-z0-9_\-]+$/', $name)) {
+        setcookie($name, $value, [
+            'expires'  => time() + $expire,
+            'path'     => '/',
+            'secure'   => false,   // bei HTTPS auf true
+            'httponly' => true,
+            'samesite' => 'Lax',
+        ]);
+    }
+
+    header('Location: ' . $_SERVER['REQUEST_URI']);
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,24 +36,62 @@
     <h1>
         Learn about Cookies with me
     </h1>
-    <nav>
-        <a href="home">Home</a>
-        <a href="Sessions">Sessions</a>
-        <a href="Cookies">Cookies</a>
-        <a href="Page3">Page 3</a>
-        <a href="Page4">Page 4</a>
-        <a href="Page5">Page 5</a>
+    <nav style="display: block;">
+        <a href="<?php echo SessionsAndCookies\config\Routes::HOME; ?>">Restart a Session</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SESSIONS; ?>">Sessions</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::COOKIES; ?>">Cookies</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA; ?>">Age</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA2; ?>">Page 4</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::ABOUT; ?>">About</a>
     </nav>
-    <h2>
-        Cookies
-    </h2>
+    <div style="display: flex; gap: 1em">
 
 
-    <infobereich class="info">
-        Sigma Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis necessitatibus autem quidem, dolorem consequuntur fugiat, nihil iure excepturi, cum ipsum eveniet vero? Ea sit, excepturi optio ipsa consectetur earum dolor.
-    </infobereich>
-    <button>Set Cookie</button>
+        <infobereich class="info">
+            Cookies are like little Storage Units that save your Information for the specific website.<br>
+            They are used to Store User Information to give a much better experience and to handle data more easily.
+            <p>
+                To Set, modify and delete a Cookie in php, use<code>setcookie()</code>. Depending on what parameter you set,
+                the use of this function changes.
+            </p>
+            The only required parameter to set is the <code>name</code> of the cookie. All other parameters are optional and will stay empty if not set.
+            <p>
+                List of all parameters:
+            <ul>
+                <li>name - Required. Specifies the name of the cookie</li>
+                <li>value - Optional. Specifies the value of the cookie</li>
+                <li>expire - Optional. Specifies when the cookie expires</li>
+                <li>path - Optional. Specifies the server path of the cookie</li>
+                <li>domain - Optional. Specifies the domain name of the cookie</li>
+                <li>secure - Optional. Specifies whether or not the cookie should only be transmitted over a secure HTTPS connection</li>
+                <li>httponly - Optional. If set to TRUE the cookie will be accessible only through the HTTP protocol</li>
+            </ul>
+            </p>
+        </infobereich>
+        <infobereich class="info">
+            <h2>Set a Cookie</h2>
+            <form action="" method="POST">
+                <label for="cookie-name">Name:</label>
+                <input type="text" name="cookie_name" id="cookie-name" required />
+
+                <label for="cookie-value">Value:</label>
+                <input type="text" name="cookie_value" id="cookie-value" />
+
+                <label for="cookie-expire">expire in s:</label>
+                <input type="number" name="cookie_expire" id="cookie-expire"
+                    placeholder="86400 = 1 day" value="86400"/>
+
+                <button type="submit">Set Cookie</button>
+            </form>
+        </infobereich>
+    </div>
     
+    <infobereich class="info" style="text-align: center; padding-bottom: 4rem;">
+        <h2>Cookies List</h2>
+        <?php foreach ($_COOKIE as $key => $val): ?>
+            <p>Cookie gefunden: <?= htmlspecialchars($key) ?> = <?= htmlspecialchars($val) ?></p>
+        <?php endforeach; ?>
+    </infobereich>
 </body>
 
 </html>

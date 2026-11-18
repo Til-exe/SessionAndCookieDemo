@@ -15,43 +15,40 @@
     <h1>
         Learn about Sessions with me
     </h1>
-    <nav>
-        <a href="home">Home</a>
-        <a href="Sessions">Sessions</a>
-        <a href="Cookies">Cookies</a>
-        <a href="Page3">Page 3</a>
-        <a href="Page4">Page 4</a>
-        <a href="Page5">Page 5</a>
+    <nav style="display: block;">
+        <a href="<?php echo SessionsAndCookies\config\Routes::HOME; ?>">Restart a Session</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SESSIONS; ?>">Sessions</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::COOKIES; ?>">Cookies</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA; ?>">Age</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::SIGMA2; ?>">Page 4</a>
+        <a href="<?php echo SessionsAndCookies\config\Routes::ABOUT; ?>">About</a>
     </nav>
-    <h2>
-        Sessions
-    </h2>
-
     <infobereich class="info">
-    <p>
-        variables hold information about one single user, and are available through all pages in one application.
-    </p>
-    <p>
-        When you work with an application, you open it, do some changes, and then you close it. This is much like a Session. The computer knows who you are. It knows when you start the application and when you close it. But on the internet there is one problem: the web server does not know who you are or what you do, because the HTTP address doesn't maintain state.
-    </p>
-    <p>
-        Session variables solve this problem by storing user information to be used across multiple pages (e.g. user logins, shopping carts, etc).
-    </p>
-    <p>
-        By default, session variables last until the user closes the browser.
-    </p>
+        <h2>Hallo, <?php echo isset($_SESSION['user_name']) ? htmlspecialchars($_SESSION['user_name']) : 'User'; ?>!</h2>
+        If you see your Username, Contrats to you and to me. The Session is running.<br><br>
+        If you dont see the Username you registert, that means that you are currently not in a Session. If so, please start a Session on the <a href="/home">Home Page</a>
+        <p>
+        </p>
+    </infobereich>
+    <infobereich class="info">
+        <h2>More Information about Sessions</h2>
+        <p>
+            Session variables hold information about one single user, and are available through all pages in one application.
+        </p>
+        <p>
+            When you work with an application, you open it, do some changes, and then you close it. This is much like a Session. The computer knows who you are. It knows when you start the application and when you close it. But on the internet there is one problem: the web server does not know who you are or what you do, because the HTTP address doesn't maintain state.
+        </p>
+        <p>
+            Session variables solve this problem by storing user information to be used across multiple pages (e.g. user logins, shopping carts, etc).
+        </p>
+        <p>
+            By default, session variables last until the user closes the browser.
+        </p>
+        <p>
+            If you clicked the Button, a new Session will have started, now your current User Information will be stored so it is available on other pages. This only includes Pages of this Website
+        </p>
     </infobereich>
 
-    <button>
-        Start Session
-    </button>
-
-    <infobereich class="info">
-    <p>
-        If you clicked the Button, a new Session will have started, now your current User Information will be stored so it is available on other pages. This only includes Pages of this Website
-    </p>
-</infobereich>
-    
 </body>
 
 </html>

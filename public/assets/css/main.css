@@ -162,6 +162,30 @@ h1 {
     backdrop-filter: blur(12px);
 }
 
+code{
+    background-color: #353535;
+    padding: 4px;
+    margin: 0 5px;
+    font-size: 0.9em;
+    font-family: monospace;
+    color:rgb(227, 175, 30);
+}
+/* Deaktivierter Button: Grau und ohne Effekte */
+button:disabled {
+    background: #4a5568 !important; /* Ein neutrales Dunkelgrau (oder #cccccc für helles Grau) */
+    color: #a0aec0 !important;      /* Hellerer Text */
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    transform: none !important;     /* Verhindert das Verschieben beim Hover */
+}
+
+/* Verhindert jeglichen Hover-Effekt, solange der Button disabled ist */
+button:disabled:hover {
+    background: #4a5568 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
 /* Start button */
 button {
     padding: 16px 38px;
